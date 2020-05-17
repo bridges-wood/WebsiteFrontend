@@ -22,6 +22,7 @@ export const initializeProjects = () => async (dispatch) => {
 	dispatch(initProjectsBegin())
 	try {
 		const projects = await projectService.getAllRepos()
+		console.log('projects :>> ', projects)
 		dispatch(initProjectsSuccess(projects))
 	} catch (error) {
 		dispatch(initProjectsFailure(error))

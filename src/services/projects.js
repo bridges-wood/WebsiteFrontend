@@ -29,8 +29,9 @@ const getLanguages = async (name) => {
 }
 
 const formatRepo = async (repo) => {
-	const README = await getREADME(repo.name)
-	const languages = await getLanguages(repo.name)
+	const [README, languages] = await Promise.all([
+		getREADME(repo.name),
+		getLanguages(repo.name)])
 	return {
 		id: repo.id,
 		name: repo.name,
@@ -45,11 +46,8 @@ const formatRepo = async (repo) => {
 
 const getAllRepos = async () => {
 	const res = await axios.get(`${baseUrl}/users/${user}/repos`, config)
-	const repos = []
-	await res.data.forEach(async (repo) => {
-		repos.push(await formatRepo(repo))
-	})
-	return repos
+	const repos = res.data.map(async (repo) => formatRepo(repo))
+	return Promise.all(repos)
 }
 
 export default { getAllRepos, getREADME, getLanguages }
