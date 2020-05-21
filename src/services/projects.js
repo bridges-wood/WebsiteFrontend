@@ -31,7 +31,8 @@ const getLanguages = async (name) => {
 const formatRepo = async (repo) => {
 	const [README, languages] = await Promise.all([
 		getREADME(repo.name),
-		getLanguages(repo.name)])
+		getLanguages(repo.name),
+	])
 	return {
 		id: repo.id,
 		name: repo.name,

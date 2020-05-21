@@ -1,46 +1,41 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import ProjectIcon from './ProjectIcon'
+import ProjectInset from './ProjectInset'
 
-const parentStyle = {
-	display: 'flex',
-	justifyContent: 'space-between',
-	width: '100%',
-}
-
-
-const ProjectSummary = ({
-	name, description, id, left,
-}) => {
-	const descStyle = {
-		order: left ? -1 : 1,
-	}
+const ProjectSummary = ({ id, left }) => {
+	const project = useSelector((state) => state.projects.find((p) => p.id === id))
 
 	return (
-		<div style={parentStyle}>
-			<div style={descStyle}>
-				<h2>{name}</h2>
-				<p>{description}</p>
-				<Link to={`/projects/${id}`}>Link</Link>
-
+		<div style={{
+			display: 'flex',
+			justifyContent: 'space-between',
+			width: 'auto',
+			height: 'auto',
+			padding: '20px',
+			outline: '5px solid black',
+			margin: '15px',
+		}}
+		>
+			<div style={{
+				order: left ? -1 : 1,
+				width: 'auto',
+			}}
+			>
+				<h2>{project.name}</h2>
+				<p>{project.description}</p>
 			</div>
-			<ProjectIcon />
+			<ProjectInset id={id} />
 		</div>
 	)
 }
 
 ProjectSummary.propTypes = {
-	name: PropTypes.string,
-	description: PropTypes.string,
-	id: PropTypes.number,
+	id: PropTypes.number.isRequired,
 	left: PropTypes.bool,
 }
 
 ProjectSummary.defaultProps = {
-	name: 'Name not found',
-	description: 'Description not found',
-	id: null,
 	left: true,
 }
 
