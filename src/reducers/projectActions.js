@@ -21,7 +21,7 @@ export const initProjectsFailure = (error) => ({
 export const initializeProjects = () => async (dispatch) => {
 	dispatch(initProjectsBegin())
 	try {
-		const projects = await projectService.getAllRepos()
+		const projects = await projectService.getAll()
 		console.log('projects :>> ', projects)
 		dispatch(initProjectsSuccess(projects))
 	} catch (error) {

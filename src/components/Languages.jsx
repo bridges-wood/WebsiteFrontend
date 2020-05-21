@@ -14,25 +14,30 @@ const parseLanguages = (languages) => {
 	return data
 }
 
-const Languages = ({ languages, style }) => (
-	<PieChart
-		style={style}
-		animationDuration={1000}
-		animate
-		data={parseLanguages(languages)}
-		labelPosition={50}
-		lengthAngle={360}
-		lineWidth={15}
-		paddingAngle={0}
-		radius={50}
-		rounded
-		startAngle={0}
-		viewBoxSize={[
-			100,
-			100,
-		]}
-	/>
-)
+const Languages = ({ languages, style }) => {
+	if (languages === null) {
+		return null
+	}
+	return (
+		<PieChart
+			style={style}
+			animationDuration={1000}
+			animate
+			data={parseLanguages(languages)}
+			labelPosition={50}
+			lengthAngle={360}
+			lineWidth={15}
+			paddingAngle={0}
+			radius={50}
+			rounded
+			startAngle={0}
+			viewBoxSize={[
+				100,
+				100,
+			]}
+		/>
+	)
+}
 
 Languages.propTypes = {
 	languages: PropTypes.object.isRequired,
