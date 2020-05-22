@@ -21,6 +21,7 @@ const projectReducer = (state = initialState, action) => {
 		return {
 			...state,
 			projects: action.data,
+			error: null,
 			loading: false,
 		}
 	case INIT_PROJECTS_FAILURE:
@@ -34,6 +35,5 @@ const projectReducer = (state = initialState, action) => {
 		return state
 	}
 }
-
 
 export default projectReducer

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import ProjectSummary from './ProjectSummary'
 
 const Projects = () => {
-	const loading = useSelector((state) => state.loading)
-	const projects = useSelector((state) => state.projects)
-	const error = useSelector((state) => state.error)
+	const loading = useSelector((state) => state.projects.loading)
+	const projects = useSelector((state) => state.projects.projects)
+	const error = useSelector((state) => state.projects.error)
 
 	if (loading) {
 		return (

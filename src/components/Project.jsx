@@ -6,8 +6,8 @@ import Languages from './Languages'
 
 
 const Project = () => {
-	const projects = useSelector((state) => state.projects)
-	const error = useSelector((state) => state.error)
+	const projects = useSelector((state) => state.projects.projects)
+	const error = useSelector((state) => state.projects.error)
 	const match = useRouteMatch('/projects/:id')
 	const project = match
 		? projects.find((p) => p.id === Number(match.params.id))

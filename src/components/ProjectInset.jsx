@@ -11,7 +11,7 @@ const ProjectInset = ({ id }) => {
 		image = `../images/${present[id]}`
 	}
 
-	const project = useSelector((state) => state.projects.find((p) => p.id === id))
+	const project = useSelector((state) => state.projects.projects.find((p) => p.id === id))
 
 	return (
 		<div style={{

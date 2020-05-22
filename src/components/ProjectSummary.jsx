@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ProjectInset from './ProjectInset'
 
 const ProjectSummary = ({ id, left }) => {
-	const project = useSelector((state) => state.projects.find((p) => p.id === id))
+	const project = useSelector((state) => state.projects.projects.find((p) => p.id === id))
 
 	return (
 		<div style={{
