@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import Languages from './Languages'
+import Loading from './Loading'
 
 
 const Project = () => {
@@ -15,9 +16,7 @@ const Project = () => {
 
 	if (!project) {
 		return (
-			<div>
-				<p>Loading...</p>
-			</div>
+			<Loading />
 		)
 	}
 

@@ -1,30 +1,41 @@
 import projectService from '../services/projects'
 
-export const INIT_PROJECTS_BEGIN = 'INIT_PROJECTS_BEGIN'
-export const INIT_PROJECTS_SUCCESS = 'INIT_PROJECTS_SUCCESS'
-export const INIT_PROJECTS_FAILURE = 'INIT_PROJECTS_FAILURE'
+export const SET_PROJECTS_BEGIN = 'SET_PROJECTS_BEGIN'
+export const SET_PROJECTS_SUCCESS = 'SET_PROJECTS_SUCCESS'
+export const SET_PROJECTS_FAILURE = 'SET_PROJECTS_FAILURE'
 
-export const initProjectsBegin = () => ({
-	type: INIT_PROJECTS_BEGIN,
+export const setProjectsBegin = () => ({
+	type: SET_PROJECTS_BEGIN,
 })
 
-export const initProjectsSuccess = (projects) => ({
-	type: INIT_PROJECTS_SUCCESS,
+export const setProjectsSuccess = (projects) => ({
+	type: SET_PROJECTS_SUCCESS,
 	data: projects,
 })
 
-export const initProjectsFailure = (error) => ({
-	type: INIT_PROJECTS_FAILURE,
+export const setProjectsFailure = (error) => ({
+	type: SET_PROJECTS_FAILURE,
 	data: error.message,
 })
 
 export const initializeProjects = () => async (dispatch) => {
-	dispatch(initProjectsBegin())
+	dispatch(setProjectsBegin())
 	try {
 		const projects = await projectService.getAll()
 		console.log('projects :>> ', projects)
-		dispatch(initProjectsSuccess(projects))
+		dispatch(setProjectsSuccess(projects))
 	} catch (error) {
-		dispatch(initProjectsFailure(error))
+		dispatch(setProjectsFailure(error))
+	}
+}
+
+export const refreshProjects = () => async (dispatch) => {
+	dispatch(setProjectsBegin())
+	try {
+		const projects = await(projectService.getAll(true))
+		console.log('projects :>> ', projects);
+		dispatch(setProjectsSuccess(projects))
+	} catch (error) {
+		dispatch(setProjectsFailure(error))
 	}
 }

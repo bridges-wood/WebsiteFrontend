@@ -1,19 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ProjectSummary from './ProjectSummary'
+import Loading from './Loading'
 
 const Projects = () => {
 	const loading = useSelector((state) => state.projects.loading)
 	const projects = useSelector((state) => state.projects.projects)
 	const error = useSelector((state) => state.projects.error)
 
-	if (loading) {
-		return (
-			<div>
-				<p>Loading...</p>
-			</div>
-		)
-	}
+	if (loading) return ( <Loading /> )
 
 	if (error) {
 		return (

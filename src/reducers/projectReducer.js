@@ -1,7 +1,7 @@
 import {
-	INIT_PROJECTS_BEGIN,
-	INIT_PROJECTS_SUCCESS,
-	INIT_PROJECTS_FAILURE,
+	SET_PROJECTS_BEGIN,
+	SET_PROJECTS_SUCCESS,
+	SET_PROJECTS_FAILURE,
 } from './projectActions'
 
 const initialState = {
@@ -12,19 +12,20 @@ const initialState = {
 
 const projectReducer = (state = initialState, action) => {
 	switch (action.type) {
-	case INIT_PROJECTS_BEGIN:
+	case SET_PROJECTS_BEGIN:
 		return {
 			...state,
+			projects: [],
 			loading: true,
 		}
-	case INIT_PROJECTS_SUCCESS:
+	case SET_PROJECTS_SUCCESS:
 		return {
 			...state,
 			projects: action.data,
 			error: null,
 			loading: false,
 		}
-	case INIT_PROJECTS_FAILURE:
+	case SET_PROJECTS_FAILURE:
 		return {
 			...state,
 			loading: false,

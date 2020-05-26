@@ -12,6 +12,7 @@ import Contact from './components/Contact'
 import LoginPage from './components/LoginPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import Admin from './components/Admin'
+import NotFoundPage from './components/NotFoundPage'
 
 const App = () => {
 	const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const App = () => {
 	}, [dispatch])
 
 	return (
-		<div>
+		<div className='container'>
 			<Header />
 			<Switch>
 				<Route path='/about' component={() => <div />} />
@@ -36,7 +37,8 @@ const App = () => {
 				<Route path='/login' component={LoginPage} />
 				<Route path='/projects/:id' component={Project} />
 				<Route path='/projects' component={Projects} />
-				<Route path='/' component={Bio} />
+				<Route exact path='/' component={Bio} />
+				<Route path='*' component={NotFoundPage} />
 			</Switch>
 			<Footer />
 		</div>
