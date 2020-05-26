@@ -22,7 +22,6 @@ export const initializeProjects = () => async (dispatch) => {
 	dispatch(setProjectsBegin())
 	try {
 		const projects = await projectService.getAll()
-		console.log('projects :>> ', projects)
 		dispatch(setProjectsSuccess(projects))
 	} catch (error) {
 		dispatch(setProjectsFailure(error))
@@ -33,7 +32,6 @@ export const refreshProjects = () => async (dispatch) => {
 	dispatch(setProjectsBegin())
 	try {
 		const projects = await(projectService.getAll(true))
-		console.log('projects :>> ', projects);
 		dispatch(setProjectsSuccess(projects))
 	} catch (error) {
 		dispatch(setProjectsFailure(error))

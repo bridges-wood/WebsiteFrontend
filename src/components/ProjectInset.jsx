@@ -37,6 +37,7 @@ const ProjectInset = ({ id }) => {
 					style={{
 						maxWidth: '50%',
 						height: '20%',
+						padding: '10px'
 					}}
 				/>
 				<div>

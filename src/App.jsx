@@ -1,18 +1,11 @@
 import React, { useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { initializeProjects } from './reducers/projectActions'
 import { continueSession } from './reducers/loginActions'
 import Header from './components/Header'
-import Bio from './components/Bio'
 import Footer from './components/Footer'
-import Projects from './components/Projects'
-import Project from './components/Project'
-import Contact from './components/Contact'
-import LoginPage from './components/LoginPage'
-import ProtectedRoute from './components/ProtectedRoute'
-import Admin from './components/Admin'
-import NotFoundPage from './components/NotFoundPage'
+import Routes from './components/Routes'
+
 
 const App = () => {
 	const dispatch = useDispatch()
@@ -30,16 +23,7 @@ const App = () => {
 	return (
 		<div className='container'>
 			<Header />
-			<Switch>
-				<Route path='/about' component={() => <div />} />
-				<ProtectedRoute path='/admin' component={Admin} />
-				<Route path='/contact' component={Contact} />
-				<Route path='/login' component={LoginPage} />
-				<Route path='/projects/:id' component={Project} />
-				<Route path='/projects' component={Projects} />
-				<Route exact path='/' component={Bio} />
-				<Route path='*' component={NotFoundPage} />
-			</Switch>
+			<Routes />
 			<Footer />
 		</div>
 	)
