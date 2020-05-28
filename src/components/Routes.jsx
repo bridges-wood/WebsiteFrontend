@@ -1,12 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Bio from './Bio'
-import Projects from './Projects'
-import Project from './Project'
-import Contact from './Contact'
-import LoginPage from './LoginPage'
+import Projects from './Projects/Projects'
+import Project from './Projects/Project'
+import Contact from './Contact/Contact'
+import LoginPage from './Login/LoginPage'
 import ProtectedRoute from './ProtectedRoute'
-import Admin from './Admin'
+import Admin from './Admin/Admin'
 import NotFoundPage from './NotFoundPage'
 
 const Routes = () => (

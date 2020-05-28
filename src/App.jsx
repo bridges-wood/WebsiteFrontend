@@ -5,6 +5,7 @@ import { continueSession } from './reducers/loginActions'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Routes from './components/Routes'
+import Notification from './components/Notification'
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 	return (
 		<div className='container'>
 			<Header />
+			<Notification />
 			<Routes />
 			<Footer />
 		</div>

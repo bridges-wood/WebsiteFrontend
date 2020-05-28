@@ -1,7 +1,8 @@
 import {
 	LOGIN_BEGIN,
 	LOGIN_SUCCESS,
-	LOGIN_FAILURE
+	LOGIN_FAILURE,
+	LOGOUT
 } from './loginActions'
 
 const initialState = {
@@ -28,6 +29,11 @@ const loginReducer = (state = initialState, action) => {
 				...state,
 				loading: false,
 				error: action.data,
+				loggedInUser: {}
+			}
+		case LOGOUT:
+			return {
+				...state,
 				loggedInUser: {}
 			}
 		default:

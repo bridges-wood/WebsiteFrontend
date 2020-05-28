@@ -2,7 +2,7 @@
 import React from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
 import PropTypes from 'prop-types'
-import colours from '../resources/colours.json'
+import colours from '../../resources/colours.json'
 
 const parseLanguages = (languages) => {
 	const data = []

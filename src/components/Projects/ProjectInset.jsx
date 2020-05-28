@@ -2,15 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import present from '../present.json'
 import Languages from './Languages'
 
 const ProjectInset = ({ id }) => {
-	let image = null
-	if (id in present) {
-		image = `../images/${present[id]}`
-	}
-
 	const project = useSelector((state) => state.projects.projects.find((p) => p.id === id))
 
 	return (
@@ -21,7 +15,7 @@ const ProjectInset = ({ id }) => {
 		}}
 		>
 			<img
-				src={image}
+				src={project.metadata.repoImage}
 				alt={`${project.name} icon`}
 				style={{
 					maxWidth: '100%',
