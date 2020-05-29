@@ -25,15 +25,15 @@ const Languages = ({ languages, style }) => {
 			animate
 			data={parseLanguages(languages)}
 			labelPosition={50}
-			lengthAngle={360}
+			lengthAngle={180}
 			lineWidth={15}
 			paddingAngle={0}
 			radius={50}
 			rounded
-			startAngle={0}
+			startAngle={180}
 			viewBoxSize={[
 				100,
-				100,
+				55,
 			]}
 		/>
 	)

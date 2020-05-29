@@ -9,7 +9,11 @@ const Header = () => {
 	const name = useSelector(state => state.user.loggedInUser.name)
 
 	return (
-	<Navbar bg="light" expand="sm">
+	<Navbar
+	bg="light"
+	expand="sm"
+	sticky='top'
+	>
 		<Navbar.Brand>
 			<LinkContainer to ='/'>
 				<NavLink>Max Wood</NavLink>

@@ -8,10 +8,11 @@ import LoginPage from './Login/LoginPage'
 import ProtectedRoute from './ProtectedRoute'
 import Admin from './Admin/Admin'
 import NotFoundPage from './NotFoundPage'
+import About from './About/About'
 
 const Routes = () => (
 	<Switch>
-		<Route path='/about' component={() => <div />} />
+		<Route path='/about' component={About} />
 		<ProtectedRoute path='/admin' component={Admin} />
 		<Route path='/contact' component={Contact} />
 		<Route path='/login' component={LoginPage} />

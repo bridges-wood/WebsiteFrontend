@@ -31,7 +31,7 @@ const LoginForm = () => {
 					type='username'
 					placeholder='Enter username'
 					style={{
-						maxWidth: '30%'
+						maxWidth: '60%'
 					}}
 					/>
 				</Form.Group>
@@ -42,7 +42,7 @@ const LoginForm = () => {
 					type='password'
 					placeholder='Password'
 					style={{
-						maxWidth: '30%'
+						maxWidth: '60%'
 					}}
 					/>
 				</Form.Group>
