@@ -19,8 +19,10 @@ const store = createStore(
 	),
 )
 
-// store.subscribe(() => {
-// 	console.log('store.getState() :>> ', store.getState())
-// })
+store.subscribe(() => {
+	console.log('store.getState() :>> ', store.getState())
+})
+
+export type RootState = ReturnType<typeof rootReducer>
 
 export default store

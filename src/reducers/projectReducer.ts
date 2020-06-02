@@ -2,15 +2,17 @@ import {
 	SET_PROJECTS_BEGIN,
 	SET_PROJECTS_SUCCESS,
 	SET_PROJECTS_FAILURE,
-} from './projectActions'
+	ProjectActionTypes
+} from './projectTypes'
+import { Project } from '../types/Project'
 
-const initialState = {
+const initialState: { projects: Project[] | [], loading: boolean, error: string | null } = {
 	projects: [],
-	loading: false,
-	error: null,
+	loading: true,
+	error: null
 }
 
-const projectReducer = (state = initialState, action) => {
+const projectReducer = (state = initialState, action: ProjectActionTypes) => {
 	switch (action.type) {
 	case SET_PROJECTS_BEGIN:
 		return {
@@ -20,17 +22,15 @@ const projectReducer = (state = initialState, action) => {
 		}
 	case SET_PROJECTS_SUCCESS:
 		return {
-			...state,
 			projects: action.data,
-			error: null,
 			loading: false,
+			error: null
 		}
 	case SET_PROJECTS_FAILURE:
 		return {
-			...state,
+			projects: initialState.projects,
 			loading: false,
-			error: action.data,
-			projects: [],
+			error: action.data
 		}
 	default:
 		return state

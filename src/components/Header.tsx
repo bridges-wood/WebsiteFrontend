@@ -1,12 +1,12 @@
 import React from 'react'
 import { Navbar, Nav, NavLink } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-	const name = useSelector(state => state.user.loggedInUser.name)
+	const name : string = useSelector(( state: RootStateOrAny ) => state.user.loggedInUser.name)
 
 	return (
 	<Navbar

@@ -1,29 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Form, Button, Spinner } from 'react-bootstrap'
-import { login } from '../../reducers/loginActions'
+import { triggerLogin } from '../../reducers/loginActions'
+import { User } from '../../types/User'
+import { RootState } from '../../store'
 
 
 const LoginForm = () => {
-	const user = useSelector(state => state.user)
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+
+	const { loggedInUser, loading } : {loggedInUser: User, loading: boolean} = useSelector(( state: RootState ) => state.user)
 	const dispatch = useDispatch()
 
-	const handleLogin = (event) => {
+	const handleLogin = (event: React.FormEvent) => {
 		event.preventDefault()
-		const form = event.target
-		const username = form.elements.username.value
-		const password = form.elements.password.value
-		dispatch(login(username, password))
+		dispatch(triggerLogin(username, password))
 	}
 
-	if (user.loggedInUser.token !== undefined) return ( <Redirect to='/admin' /> )
-	
+	if (loggedInUser.token !== null) return ( <Redirect to='/admin' /> )
 
 	return (
 		<div>
 			<h2>Login</h2>
-			<Form onSubmit={handleLogin}>
+			<Form onSubmit={(event: React.FormEvent) => handleLogin(event)}>
 				<Form.Group controlId='formUsername'>
 					<Form.Label>Username</Form.Label>
 					<Form.Control
@@ -33,6 +34,7 @@ const LoginForm = () => {
 					style={{
 						maxWidth: '60%'
 					}}
+					onChange={(event) => setUsername(event.target.value)}
 					/>
 				</Form.Group>
 				<Form.Group controlId='formPassword'>
@@ -44,10 +46,11 @@ const LoginForm = () => {
 					style={{
 						maxWidth: '60%'
 					}}
+					onChange={(event) => setPassword(event.target.value)}
 					/>
 				</Form.Group>
-				<Button id='login-button' variant='primary' type='submit' disabled={user.loading}>
-					{user.loading
+				<Button id='login-button' variant='primary' type='submit' disabled={loading}>
+					{loading
 					?
 					<>
 						<Spinner 
