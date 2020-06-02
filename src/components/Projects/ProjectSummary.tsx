@@ -1,12 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import { Card } from 'react-bootstrap'
-import PropTypes from 'prop-types'
 import Languages from './Languages'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Project } from '../../types/Project'
 
-const ProjectSummary = ({ id }) => {
-	const project = useSelector((state) => state.projects.projects.find((p) => p.id === id))
+const ProjectSummary = ({ id } : { id: number }) => {
+	const project: Project = useSelector((state: RootStateOrAny) => state.projects.projects.find((p: Project) => p.id === id))
 
 	return (
 		<Card
@@ -55,10 +55,6 @@ const ProjectSummary = ({ id }) => {
 			</Card.Body>
 		</Card>
 	)
-}
-
-ProjectSummary.propTypes = {
-	id: PropTypes.number.isRequired,
 }
 
 export default ProjectSummary

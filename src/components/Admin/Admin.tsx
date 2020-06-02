@@ -1,23 +1,29 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { Button, Accordion, Card } from 'react-bootstrap'
 import ConfirmRefresh from './ConfirmRefresh'
-import { logout } from '../../reducers/loginActions'
+import { triggerLogout } from '../../reducers/loginActions'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 const Admin = () => {
-const openConfirmation = useRef()
+const [visibleConfirm, setConfirmVisibility] = useState(false)
 const dispatch = useDispatch()
 const history = useHistory()
 
+const toggleVisibility = () => {
+	setConfirmVisibility(!visibleConfirm)
+}
+
 const handleLogout = () => {
-	dispatch(logout())
+	dispatch(triggerLogout())
 	history.push('/')
 }
 
 return (
 	<div>
-		<ConfirmRefresh ref={openConfirmation}/>
+		{
+			visibleConfirm ? <ConfirmRefresh toggleVisibility={toggleVisibility} /> : null
+		}
 		<Accordion defaultActiveKey='0'>
 			<Card>
 				<Card.Header>
@@ -39,12 +45,12 @@ return (
 				</Card.Header>
 				<Accordion.Collapse eventKey='1'>
 					<Card.Body>
-						<Button onClick={() => openConfirmation.current.handleShow()}>Trigger</Button>
+						<Button onClick={toggleVisibility}>Trigger</Button>
 					</Card.Body>
 				</Accordion.Collapse>
 			</Card>
 		</Accordion>
-		<Button variant='secondary' onClick={() => handleLogout()}>Logout</Button>
+		<Button variant='secondary' onClick={handleLogout}>Logout</Button>
 	</div>
 )}
 

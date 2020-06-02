@@ -1,14 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import { CardDeck } from 'react-bootstrap'
 import ProjectSummary from './ProjectSummary'
 import Loading from '../Loading'
+import { Project } from '../../types/Project'
 
 const Projects = () => {
-	const loading = useSelector((state) => state.projects.loading)
-	const projects = useSelector((state) => state.projects.projects)
-	const error = useSelector((state) => state.projects.error)
+	const {loading, projects, error} : { loading: boolean, projects: Project[], error: Error} = useSelector((state: RootStateOrAny) => state.projects)
 
+	console.log('loading', loading)
 	if (loading) return (
 	<div style={{
 		height: window.innerHeight,
@@ -40,12 +40,9 @@ const Projects = () => {
 			}}>
 			{projects.map((project) => {
 				return (
-					<ProjectSummary
-						key={project.id.toString()}
-						name={project.name}
-						description={project.description}
-						id={project.id}
-					/>
+					<ProjectSummary 
+					key={project.id}
+					id={project.id}/>
 				)
 			})}
 			</CardDeck>

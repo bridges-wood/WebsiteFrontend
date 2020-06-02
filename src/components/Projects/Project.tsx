@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import Languages from './Languages'
 import Loading from '../Loading'
+import { Project as ProjectType } from '../../types/Project'
 
 
 const Project = () => {
@@ -12,11 +13,13 @@ const Project = () => {
 		window.scrollTo(0,0)
 	}, [])
 
-	const projects = useSelector((state) => state.projects.projects)
-	const error = useSelector((state) => state.projects.error)
-	const match = useRouteMatch('/projects/:id')
+	const projects = useSelector((state: RootStateOrAny) => state.projects.projects)
+	const error = useSelector((state: RootStateOrAny) => state.projects.error)
+	const match : {params : {
+		id: string
+	}} = useRouteMatch('/projects/:id')
 	const project = match
-		? projects.find((p) => p.id === Number(match.params.id))
+		? projects.find((p : ProjectType) => p.id === Number(match.params.id))
 		: null
 
 	if (!project) {
