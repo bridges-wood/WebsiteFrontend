@@ -5,7 +5,7 @@ import {
 	LOGOUT,
 	LoginActionTypes
 } from './loginTypes'
-import { User } from '../types/User'
+import { User } from '../../types/User'
 
 const initialState : { loggedInUser: User, loading: boolean, error: string | null } = {
 	loggedInUser: {

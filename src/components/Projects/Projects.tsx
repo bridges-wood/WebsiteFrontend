@@ -1,25 +1,21 @@
 import React from 'react'
-import { useSelector, RootStateOrAny } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { CardDeck } from 'react-bootstrap'
 import ProjectSummary from './ProjectSummary'
 import Loading from '../Loading'
 import { Project } from '../../types/Project'
+import styles from './Projects.module.css'
+import { RootState } from '../../store'
 
 const Projects = () => {
-	const {loading, projects, error} : { loading: boolean, projects: Project[], error: Error} = useSelector((state: RootStateOrAny) => state.projects)
+	const {loading, projects, error} = useSelector((state: RootState) => state.projects)
+	const theme = useSelector((state: RootState) => state.theme.theme)
 
-	console.log('loading', loading)
 	if (loading) return (
-	<div style={{
-		height: window.innerHeight,
-		width: '100%',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
-	}}>
-		<Loading />
-	</div>
-		)
+		<div className={styles.loading}>
+			<Loading />
+		</div>
+	)
 
 	if (error) {
 		return (
@@ -31,20 +27,14 @@ const Projects = () => {
 
 	return (
 		<div>
-			<h1>Projects</h1>
-			<CardDeck
-			style={{
-				display: 'flex',
-				flexWrap: 'wrap',
-				alignItems: 'baseline'
-			}}>
-			{projects.map((project) => {
-				return (
+			<h1 className={`${styles.header} ${styles[theme]}`}>Projects</h1>
+			<CardDeck className={styles.projects}>
+			{projects.map((project: Project) => (
 					<ProjectSummary 
 					key={project.id}
 					id={project.id}/>
 				)
-			})}
+			)}
 			</CardDeck>
 		</div>
 	)

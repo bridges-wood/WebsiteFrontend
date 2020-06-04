@@ -2,14 +2,16 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import projectReducer from './reducers/projectReducer'
-import loginReducer from './reducers/loginReducer'
-import notificationReducer from './reducers/notificationsReducer'
+import projectReducer from './reducers/projects/projectReducer'
+import loginReducer from './reducers/login/loginReducer'
+import notificationReducer from './reducers/notification/notificationsReducer'
+import themeReducer from './reducers/theme/themeReducer'
 
 const rootReducer = combineReducers({
 	projects: projectReducer,
 	user: loginReducer,
-	notification: notificationReducer
+	notification: notificationReducer,
+	theme: themeReducer
 })
 
 const store = createStore(
@@ -19,9 +21,9 @@ const store = createStore(
 	),
 )
 
-store.subscribe(() => {
-	console.log('store.getState() :>> ', store.getState())
-})
+// store.subscribe(() => {
+// 	console.log('store.getState() :>> ', store.getState())
+// })
 
 export type RootState = ReturnType<typeof rootReducer>
 

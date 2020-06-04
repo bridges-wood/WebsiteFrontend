@@ -1,0 +1,77 @@
+.header.dark {
+	margin-left: 0.7em;
+	color: bisque;
+}
+
+.languages {
+	width: 30%;
+}
+
+.languagesPreview {
+	max-width: 50%;
+	padding-right: 10px;
+	min-height: 4rem;
+}
+
+.languageInset {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.loading {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainLanguage.dark {
+	color: bisque;
+}
+
+.projects {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	margin: 15px;
+}
+
+.projectDescription {
+	height: 2em
+}
+
+.projectDescription.dark {
+	color: bisque;
+}
+
+.projectImage {
+	border-radius: 1em;
+	width: 90%;
+	margin: auto;
+	margin-top: 1em;
+}
+
+.projectSummary {
+	flex-basis: 30%;
+	max-width: 100%;
+	min-width: 30%;
+	margin-top: 20px;
+	border: none;
+	border-radius: 1em;
+}
+
+.projectSummary.light {
+	box-shadow: -12px -12px 12px 0 #ffffffb3, 12px 12px 12px 0 #0000001a;
+	background-color: #fbfbfb;
+}
+
+.projectSummary.dark {
+	box-shadow: -8px -8px 6px 0 #ffffff1a, 12px 12px 12px 0 #000000b3;
+	background-color: #343a40;
+}
+
+.projectTitle.dark {
+	color: bisque;
+}

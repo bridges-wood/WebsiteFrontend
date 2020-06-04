@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Form, Button, Spinner } from 'react-bootstrap'
-import { triggerLogin } from '../../reducers/loginActions'
+import { triggerLogin } from '../../reducers/login/loginActions'
 import { User } from '../../types/User'
 import { RootState } from '../../store'
+import styles from './LoginPage.module.css'
 
 
 const LoginForm = () => {
@@ -22,8 +23,8 @@ const LoginForm = () => {
 	if (loggedInUser.token !== null) return ( <Redirect to='/admin' /> )
 
 	return (
-		<div>
-			<h2>Login</h2>
+		<div className={styles.loginForm}>
+			<h1>Login</h1>
 			<Form onSubmit={(event: React.FormEvent) => handleLogin(event)}>
 				<Form.Group controlId='formUsername'>
 					<Form.Label>Username</Form.Label>
@@ -31,9 +32,7 @@ const LoginForm = () => {
 					name='username'
 					type='username'
 					placeholder='Enter username'
-					style={{
-						maxWidth: '60%'
-					}}
+					className={styles.inputBox}
 					onChange={(event) => setUsername(event.target.value)}
 					/>
 				</Form.Group>
@@ -43,9 +42,7 @@ const LoginForm = () => {
 					name='password'
 					type='password'
 					placeholder='Password'
-					style={{
-						maxWidth: '60%'
-					}}
+					className={styles.inputBox}
 					onChange={(event) => setPassword(event.target.value)}
 					/>
 				</Form.Group>

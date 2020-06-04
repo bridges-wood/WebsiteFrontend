@@ -1,39 +1,38 @@
 import React from 'react'
+import styles from './Footer.module.css'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
-const iconStyle = {
-	width: '20px',
-	margin: '5px'
-}
+const Footer = () => {
+	const theme = useSelector((state: RootState) => state.theme.theme)
 
-const Footer = () => (
-	<div
-	style={{
-		display: 'flex',
-		justifyContent: 'center'
-	}}>
-		
+	return (
+	<div className={styles.footer}>
 		<a
 		href='https://github.com/bridges-wood'
-		style={iconStyle} >
+		className={`${styles.link} ${styles[theme]}`}>
 			<img
 			src='icons/github.svg'
-			alt='Github' />
+			alt='Github'
+			className={`${styles.icon} ${styles[theme]}`}/>
 		</a>
 		<a
 		href='https://www.linkedin.com/in/max-wood-181140182/'
-		style={iconStyle}>
+		className={`${styles.link} ${styles[theme]}`}>
 			<img
-			src='/icons/linkedin.svg'
-			alt='Linkedin'/>
+			src='/icons/linkedin.svg' 
+			alt='Linkedin'
+			className={`${styles.icon} ${styles[theme]}`}/>
 		</a>
 		<a 
 		href='mailto:bridges.wood@gmail.com'
-		style={iconStyle}>
+		className={`${styles.link} ${styles[theme]}`}>
 			<img
 			src='/icons/gmail.svg'
-			alt='Email me'/>
+			alt='Email me'
+			className={`${styles.icon} ${styles[theme]}`}/>
 		</a>
 	</div>
-)
+)}
 
 export default Footer

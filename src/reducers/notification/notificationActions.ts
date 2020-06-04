@@ -1,4 +1,4 @@
-import { Dispatch } from "redux"
+import { Dispatch } from 'redux'
 import {
 	SET_NOTIFICATION,
 	CLEAR_NOTIFICATION,

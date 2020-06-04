@@ -38,7 +38,7 @@ const Project = () => {
 
 	return (
 		<div>
-			<Languages languages={project.languages} style={{ width: '30%' }} />
+			<Languages languages={project.languages} className={'languages'}/>
 			<ReactMarkdown source={project.README} />
 		</div>
 	)

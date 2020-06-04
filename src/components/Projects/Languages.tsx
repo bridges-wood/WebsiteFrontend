@@ -1,7 +1,9 @@
 import React from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
-import colors from '../../resources/colors.json'
 import { Data } from 'react-minimal-pie-chart/types/commonTypes'
+import colors from '../../resources/colors.json'
+import styles from './Projects.module.css'
+
 
 const parseLanguages = (languages: {name: string, bytes: number}[]) => {
 	const data: Data = []
@@ -13,13 +15,19 @@ const parseLanguages = (languages: {name: string, bytes: number}[]) => {
 	return data
 }
 
-const Languages = ({languages, style} : { languages: { name: string, bytes: number }[], style: object }) => {
+const Languages = ({languages, className} :
+	{ languages: {
+		name: string,
+		bytes: number
+	}[],
+	className: string }) => {
+
 	if (languages === null) {
 		return null
 	}
 	return (
 		<PieChart
-			style={style}
+			className={styles[className]}
 			animationDuration={1000}
 			animate
 			data={parseLanguages(languages)}

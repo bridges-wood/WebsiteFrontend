@@ -4,15 +4,20 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { useSelector, RootStateOrAny } from 'react-redux'
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 import { Link } from 'react-router-dom'
+import { ThemeName } from '../types/Theme'
+import { RootState } from '../store'
+import ThemeToggle from './ThemeToggle'
 
 const Header = () => {
 	const name : string = useSelector(( state: RootStateOrAny ) => state.user.loggedInUser.name)
+	const theme: ThemeName = useSelector((state : RootState) => state.theme.theme)
 
 	return (
 	<Navbar
-	bg="light"
-	expand="sm"
+	bg={theme}
+	expand='sm'
 	sticky='top'
+	collapseOnSelect
 	>
 		<Navbar.Brand>
 			<LinkContainer to ='/'>
@@ -31,6 +36,7 @@ const Header = () => {
 				<LinkContainer to='/contact'>
 					<NavLink>Contact</NavLink>
 				</LinkContainer>
+				<ThemeToggle />
 			</Nav>
   		</Navbar.Collapse>
 		{name ?

@@ -1,0 +1,13 @@
+.container {
+	min-height: 100vh;
+}
+
+.container.light {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	background-color: #ffffff;
+}
+
+.container.dark {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	background-color: #343a40;
+}

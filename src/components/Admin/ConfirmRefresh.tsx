@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button, Modal, Form } from 'react-bootstrap'
-import { refreshProjects } from '../../reducers/projectActions'
+import { refreshProjects } from '../../reducers/projects/projectActions'
 
 export interface visibilityHandle {
 	toggleVisibility(): void
