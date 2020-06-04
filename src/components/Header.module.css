@@ -1,0 +1,9 @@
+.navbar.dark {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	background-color: #343a40;
+}
+
+.navbar.light {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	background-color: #f8f9fa;
+}

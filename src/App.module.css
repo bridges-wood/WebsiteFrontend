@@ -4,7 +4,7 @@
 
 .container.light {
 	transition: all 1s cubic-bezier(.41,.25,.52,.96);
-	background-color: #ffffff;
+	background-color: #f8f9fa;
 }
 
 .container.dark {

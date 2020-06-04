@@ -1,5 +1,8 @@
-.header.dark {
+.header {
 	margin-left: 0.7em;
+}
+
+.header.dark {
 	color: bisque;
 }
 

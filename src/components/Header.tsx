@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { ThemeName } from '../types/Theme'
 import { RootState } from '../store'
 import ThemeToggle from './ThemeToggle'
+import styles from './Header.module.css'
 
 const Header = () => {
 	const name : string = useSelector(( state: RootStateOrAny ) => state.user.loggedInUser.name)
@@ -14,7 +15,7 @@ const Header = () => {
 
 	return (
 	<Navbar
-	bg={theme}
+	className={`${styles.navbar} ${styles[theme]}`}
 	expand='sm'
 	sticky='top'
 	collapseOnSelect
