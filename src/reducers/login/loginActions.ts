@@ -1,6 +1,6 @@
-import loginService from '../services/login'
-import projectService from '../services/projects'
-import { notify } from './notificationActions'
+import loginService from '../../services/login'
+import projectService from '../../services/projects'
+import { notify } from '../notification/notificationActions'
 import { 
 	LOGIN_STARTED,
 	LOGIN_SUCCESS,
@@ -9,7 +9,7 @@ import {
 	LoginActionTypes
 } from './loginTypes'
 import { Dispatch } from 'redux'
-import { User } from '../types/User'
+import { User } from '../../types/User'
 
 
 
@@ -64,6 +64,6 @@ export const triggerLogout = () => {
 	return (dispatch: Dispatch) => {
 		localStorage.removeItem('user') 
 		dispatch(logout()) 
-		notify('Successfully logged out.', 'success')
+		dispatch<any>(notify('Successfully logged out.', 'success'))
 	}
 }

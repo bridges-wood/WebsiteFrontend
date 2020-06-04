@@ -1,4 +1,4 @@
-import { Project } from "../types/Project"
+import { Project } from "../../types/Project"
 
 export const SET_PROJECTS_BEGIN = 'SET_PROJECTS_BEGIN'
 export const SET_PROJECTS_SUCCESS = 'SET_PROJECTS_SUCCESS'

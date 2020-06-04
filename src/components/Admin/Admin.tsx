@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Accordion, Card } from 'react-bootstrap'
 import ConfirmRefresh from './ConfirmRefresh'
-import { triggerLogout } from '../../reducers/loginActions'
+import { triggerLogout } from '../../reducers/login/loginActions'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 

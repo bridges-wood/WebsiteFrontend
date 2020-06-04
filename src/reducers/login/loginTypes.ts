@@ -1,4 +1,4 @@
-import { User } from "../types/User"
+import { User } from "../../types/User"
 
 export const LOGIN_STARTED = 'LOGIN_STARTED'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'

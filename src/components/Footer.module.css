@@ -1,0 +1,29 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: auto;
+}
+
+.icon.dark {
+	filter: invert(100%);
+}
+
+.link {
+	width: 40px;
+	padding: 5px;
+	margin-bottom: 6px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 0.2em;
+}
+
+.link.light {
+	box-shadow: -6px -6px 6px 0 #ffffffb3, 6px 6px 6px 0 #0000001a;
+	background-color: #f9f9f9;
+}
+
+.link.dark {
+	box-shadow: -4px -3px 6px 0 #ffffff1a, 4px 4px 6px 0 #000000b3;
+	background-color: #343a40;
+}

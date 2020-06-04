@@ -4,9 +4,9 @@ import {
 	SET_PROJECTS_FAILURE,
 	ProjectActionTypes
 } from './projectTypes'
-import { Project } from '../types/Project'
+import { Project } from '../../types/Project'
 
-const initialState: { projects: Project[] | [], loading: boolean, error: string | null } = {
+const initialState: { projects: Project[], loading: boolean, error: string | null } = {
 	projects: [],
 	loading: true,
 	error: null
@@ -22,7 +22,7 @@ const projectReducer = (state = initialState, action: ProjectActionTypes) => {
 		}
 	case SET_PROJECTS_SUCCESS:
 		return {
-			projects: action.data,
+			projects: action.data.sort((a, b) => a.id - b.id),
 			loading: false,
 			error: null
 		}

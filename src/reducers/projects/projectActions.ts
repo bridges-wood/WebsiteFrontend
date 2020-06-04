@@ -1,13 +1,13 @@
 import { Dispatch } from 'redux'
-import { Project } from '../types/Project'
+import { Project } from '../../types/Project'
 import {
 	SET_PROJECTS_BEGIN,
 	SET_PROJECTS_SUCCESS,
 	SET_PROJECTS_FAILURE,
 	ProjectActionTypes
 } from './projectTypes'
-import projectService from '../services/projects'
-import { notify } from './notificationActions'
+import projectService from '../../services/projects'
+import { notify } from '../notification/notificationActions'
 
 export const setProjectsBegin = (): ProjectActionTypes => ({
 	type: SET_PROJECTS_BEGIN,
