@@ -4,11 +4,14 @@ import { Data } from 'react-minimal-pie-chart/types/commonTypes'
 import colors from '../../resources/colors.json'
 import styles from './Projects.module.css'
 
+export const findColor = (languageName: string) => {
+	return colors.find(e => e.name === languageName).color
+} 
 
 export const parseLanguages = (languages: {name: string, bytes: number}[]) => {
 	const data: Data = []
 	languages.map(language => data.push({
-		color: colors.find(e => e.name === language.name).color,
+		color: findColor(language.name),
 		title: language.name,
 		value: language.bytes,
 	}))

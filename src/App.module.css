@@ -3,11 +3,11 @@
 }
 
 .container.light {
-	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	transition: all 1s ease-in;
 	background-color: #f8f9fa;
 }
 
 .container.dark {
-	transition: all 1s cubic-bezier(.41,.25,.52,.96);
-	background-color: #343a40;
+	transition: all 1s ease-in;
+	background-color: #121212;
 }

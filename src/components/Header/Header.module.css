@@ -1,10 +1,12 @@
+.navbar {
+	transition: all 1s ease-in;
+}
+
 .navbar.dark {
-	transition: all 1s cubic-bezier(.41,.25,.52,.96);
-	background-color: #343a40;
+	background-color: #252525;
 }
 
 .navbar.light {
-	transition: all 1s cubic-bezier(.41,.25,.52,.96);
 	background-color: #f8f9fa;
 }
 
@@ -16,4 +18,9 @@
 
 .pageLink {
 	margin-left: 1em;
+	padding: .5rem 1rem;
+}
+
+.pageLink.dark {
+	color: #ffffff !important;
 }

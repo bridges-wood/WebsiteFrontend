@@ -36,20 +36,20 @@ const Header = () => {
 				</LinkContainer>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
+			<Navbar.Collapse>
 				<Nav className="mr-auto">
 					<LinkContainer to='/projects'>
-						<NavLink className={styles.pageLink}>
+						<NavLink bsPrefix={styles.pageLink} className={`${styles[theme]}`}>
 							Projects
 						</NavLink>
 					</LinkContainer>
 					<LinkContainer to='/about'>
-						<NavLink className={styles.pageLink}>
+						<NavLink className={`${styles.pageLink} ${styles[theme]}`}>
 							About
 						</NavLink>
 					</LinkContainer>
 					<LinkContainer to='/contact'>
-						<NavLink className={styles.pageLink}>
+						<NavLink className={`${styles.pageLink} ${styles[theme]}`}>
 							Contact
 						</NavLink>
 					</LinkContainer>
