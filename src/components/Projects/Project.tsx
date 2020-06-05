@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { useSelector, RootStateOrAny } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import Languages from './Languages'
-import Loading from '../Loading'
+import Loading from '../Loading/Loading'
 import { Project as ProjectType } from '../../types/Project'
+import { RootState } from '../../store'
+import styles from './Projects.module.css'
+import LanguageTable from './LanguageTable'
 
 
 const Project = () => {
-
 	useEffect(() => {
 		window.scrollTo(0,0)
 	}, [])
 
-	const projects = useSelector((state: RootStateOrAny) => state.projects.projects)
-	const error = useSelector((state: RootStateOrAny) => state.projects.error)
+	const projects = useSelector((state: RootState) => state.projects.projects)
+	const error = useSelector((state: RootState) => state.projects.error)
+	const theme = useSelector((state: RootState) => state.theme.theme)
+	
 	const match : {params : {
 		id: string
 	}} = useRouteMatch('/projects/:id')
@@ -24,7 +28,9 @@ const Project = () => {
 
 	if (!project) {
 		return (
-			<Loading />
+			<div className={styles.loading}>
+				<Loading />
+			</div>
 		)
 	}
 
@@ -37,9 +43,22 @@ const Project = () => {
 	}
 
 	return (
-		<div>
-			<Languages languages={project.languages} className={'languages'}/>
-			<ReactMarkdown source={project.README} />
+		<div className={styles.project}>
+			<div className={styles.languageContainer}>
+				<Languages languages={project.languages} className={'languages'} circle/>
+				<LanguageTable languages={project.languages} className={'table'} />
+			</div>
+			
+			 <div className={`${styles.readme} ${styles[theme]}`}>
+				{project.README !== null
+				? <ReactMarkdown source={project.README} />
+				: <>
+					<h1>{project.name}</h1>
+					<p>This project does not currently have a README, however, that doesn't
+						mean that you can't check out my code <a href={project.url}>here.</a>
+					</p>
+				</>}
+			</div>
 		</div>
 	)
 }

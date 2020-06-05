@@ -6,7 +6,12 @@
 }
 
 .icon.dark {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
 	filter: invert(100%);
+}
+
+.icon.light {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
 }
 
 .link {
@@ -19,11 +24,13 @@
 }
 
 .link.light {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
 	box-shadow: -6px -6px 6px 0 #ffffffb3, 6px 6px 6px 0 #0000001a;
 	background-color: #f9f9f9;
 }
 
 .link.dark {
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
 	box-shadow: -4px -3px 6px 0 #ffffff1a, 4px 4px 6px 0 #000000b3;
 	background-color: #343a40;
 }

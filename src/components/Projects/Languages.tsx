@@ -5,7 +5,7 @@ import colors from '../../resources/colors.json'
 import styles from './Projects.module.css'
 
 
-const parseLanguages = (languages: {name: string, bytes: number}[]) => {
+export const parseLanguages = (languages: {name: string, bytes: number}[]) => {
 	const data: Data = []
 	languages.map(language => data.push({
 		color: colors.find(e => e.name === language.name).color,
@@ -15,12 +15,13 @@ const parseLanguages = (languages: {name: string, bytes: number}[]) => {
 	return data
 }
 
-const Languages = ({languages, className} :
+const Languages = ({languages, className, circle} :
 	{ languages: {
 		name: string,
 		bytes: number
 	}[],
-	className: string }) => {
+	className: string,
+	circle?: boolean }) => {
 
 	if (languages === null) {
 		return null
@@ -28,11 +29,10 @@ const Languages = ({languages, className} :
 	return (
 		<PieChart
 			className={styles[className]}
-			animationDuration={1000}
+			animationDuration={1500}
 			animate
 			data={parseLanguages(languages)}
-			labelPosition={50}
-			lengthAngle={180}
+			lengthAngle={circle ? 360 : 180}
 			lineWidth={15}
 			paddingAngle={0}
 			radius={50}
@@ -40,7 +40,7 @@ const Languages = ({languages, className} :
 			startAngle={180}
 			viewBoxSize={[
 				100,
-				55,
+				circle ? 100 : 55,
 			]}
 		/>
 	)

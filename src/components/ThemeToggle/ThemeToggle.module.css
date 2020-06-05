@@ -1,0 +1,96 @@
+.darkModeToggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: .25;
+	width: 48px;
+	height: 48px;
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+	cursor: pointer;
+}
+
+.darkModeToggle.dark {
+	transform: rotate(-45deg);
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+}
+
+.darkModeToggle:hover {
+	opacity: 1;
+}
+
+.arc {
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	position: absolute;
+	background: #424242;
+	transition: all ease-in-out .3s;
+}
+
+.arc.dark {
+	transition: all ease-in-out .3s;
+	transform: scale(1.2);
+	background: #f5f5f5;
+}
+
+.darc {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	border-radius: 8px;
+	background: #f8f9fa;
+	transform: translateX(24px);
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+}
+
+.darc.dark {
+	background: #343a40;
+	transform: translateX(6px);
+	transition: all 1s cubic-bezier(.41,.25,.52,.96);
+}
+
+.ray {
+	width: 6px;
+	height: 2px;
+	position: absolute;
+	border-radius: 2spx;
+	background: #424242;
+	transition: all ease-in-out .3s;
+}
+
+.ray.dark {
+	transform: scaleX(0.01);
+	opacity: 0;
+}
+
+.ray.one {
+	transform: rotate(0deg) translateX(14px);
+}
+
+.ray.two {
+	transform: rotate(45deg) translateX(14px);
+}
+
+.ray.three {
+	transform: rotate(90deg) translateX(14px);
+}
+
+.ray.four {
+	transform: rotate(135deg) translateX(14px);
+}
+
+.ray.five {
+	transform: rotate(180deg) translateX(14px);
+}
+
+.ray.six {
+	transform: rotate(225deg) translateX(14px);
+}
+
+.ray.seven {
+	transform: rotate(270deg) translateX(14px);
+}
+
+.ray.eight {
+	transform: rotate(315deg) translateX(14px);
+}
