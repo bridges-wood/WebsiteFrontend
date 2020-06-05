@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.css'
 import { useSelector } from 'react-redux'
-import { RootState } from '../store'
+import { RootState } from '../../store'
 
 const Footer = () => {
 	const theme = useSelector((state: RootState) => state.theme.theme)
@@ -12,7 +12,7 @@ const Footer = () => {
 		href='https://github.com/bridges-wood'
 		className={`${styles.link} ${styles[theme]}`}>
 			<img
-			src='icons/github.svg'
+			src='/icons/github.svg'
 			alt='Github'
 			className={`${styles.icon} ${styles[theme]}`}/>
 		</a>

@@ -5,7 +5,7 @@ import {
 import { ThemeName } from '../../types/Theme'
 
 const initialState : { theme: ThemeName } = {
-	theme: 'dark'
+	theme: 'unloaded'
 }
 
 const themeReducer = (state = initialState, action: ThemeTypes) => {

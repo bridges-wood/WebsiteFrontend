@@ -23,3 +23,16 @@ export const triggerSet = (theme: ThemeName) => {
 		dispatch(setTheme(theme))
 	}
 }
+
+export const getSystemColorScheme = () => {
+	return (dispatch : Dispatch) => {
+		const prefersDark = window
+		.matchMedia('prefers-color-scheme: dark')
+		.matches
+		if ( prefersDark ) {
+			dispatch(setTheme('dark'))
+		} else {
+			dispatch(setTheme('light'))
+		}
+	}
+}

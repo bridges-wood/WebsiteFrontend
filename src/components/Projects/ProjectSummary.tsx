@@ -19,7 +19,7 @@ const ProjectSummary = ({ id } : { id: number }) => {
 			className={styles.projectImage}/>
 			<Card.Body>
 				<Card.Title className={`${styles.projectTitle} ${styles[theme]}`}>
-					{project.name}
+					{project.name} - {project.mainLanguage}
 				</Card.Title>
 				<Card.Text className={`${styles.projectDescription} ${styles[theme]}`}>
 					{project.description}
