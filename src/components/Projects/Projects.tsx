@@ -26,7 +26,7 @@ const Projects = () => {
 	}
 
 	return (
-		<div>
+		<div className={styles.container}>
 			<h1 className={`${styles.header} ${styles[theme]}`}>Projects</h1>
 			<CardDeck className={styles.projects}>
 			{projects.map((project: Project) => (

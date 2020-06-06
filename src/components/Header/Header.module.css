@@ -1,4 +1,10 @@
+.brand {
+	height: 50px;
+	margin-left: 0.6em;
+}
+
 .navbar {
+	padding: .5em;
 	transition: all 1s ease-in;
 }
 
@@ -18,9 +24,52 @@
 
 .pageLink {
 	margin-left: 1em;
-	padding: .5rem 1rem;
+	padding: .5rem;
+	text-decoration: none;
+	transition: color 1s ease-in;
+}
+
+.pageLink.light {
+	color: black;
+	text-decoration: none;
 }
 
 .pageLink.dark {
-	color: #ffffff !important;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.pageLink.active {
+	color: #007bff;
+	transition: none;
+}
+
+.pageLink:hover {
+	opacity: 0.8;
+}
+
+.secondary {
+	width: 100%;
+	display: grid;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: .5rem;
+}
+
+.text {
+	position: relative;
+	top: 0.25rem;
+	margin-left: 1em;
+	padding: .5rem;
+	transition: color 1s ease-in;
+}
+
+.text.dark {
+	color: #ffffff;
+}
+
+.text > .pageLink {
+	padding-left: 0;
+	margin-left: 0;
+	font-weight: bold;
 }

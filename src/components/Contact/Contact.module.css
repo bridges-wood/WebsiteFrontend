@@ -1,24 +1,22 @@
-.about {
+.contact {
 	padding: 0.5em;
 }
 
-.about p {
+.contact p {
+	text-align: center;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
+	font-size: 15pt;
 }
 
-.about.light h1,
-.about.light p,
-.about.light h3,
-.about.light li {
+.contact.light h1,
+.contact.light p {
 	color: #000000;
 	transition: color ease-in 1s;
 }
 
-.about.dark h1,
-.about.dark p,
-.about.dark h3,
-.about.dark li {
+.contact.dark h1,
+.contact.dark p {
 	color: #ffffff;
 	transition: color ease-in 1s;
 }

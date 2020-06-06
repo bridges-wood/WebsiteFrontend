@@ -1,6 +1,8 @@
+.container {
+	padding: 0.5em;
+}
+
 .header {
-	margin-left: 0.7em;
-	margin-top: 0.5em;
 	transition: all ease-in 1s;
 }
 
@@ -123,10 +125,25 @@
 }
 /* END README STYLES */
 
+/* TABLE STYLES */
 .table {
 	width: 90%;
 	margin: 1em;
+	text-align: center;
+	transition: all ease-in 1s;
 }
+
+.table.light > thead > tr > th,
+.table.light > tbody > tr > td {
+	transition: all ease-in 1s;
+}
+
+.table.dark > thead > tr > th,
+.table.dark > tbody > tr > td {
+	color: #ffffff;
+	transition: all ease-in 1s;
+}
+/* END TABLE STYLES */
 
 @media (max-height: 420px) and (max-width: 768px) {
 	.languageContainer {

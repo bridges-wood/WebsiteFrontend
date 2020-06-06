@@ -2,16 +2,19 @@ import React from 'react'
 import Table from 'react-bootstrap/Table'
 import { parseLanguages } from './Languages'
 import styles from './Projects.module.css'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 const LanguageTable = ({ languages, className } : {
 	languages: {name: string, bytes: number}[],
 	className: string
 	}) => {
+	const theme = useSelector((state: RootState) => state.theme.theme)
 	const parsedLanguages = parseLanguages(languages)
 	const total = parsedLanguages.map(language => language.value).reduce((acc, cur) => acc + cur)
 
 	return (
-		<Table className={styles[className]}>
+		<Table bsPrefix={`${styles[className]} ${styles[theme]}`}>
 			<thead>
 				<tr>
 					<th>Language</th>

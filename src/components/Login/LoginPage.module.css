@@ -1,7 +1,51 @@
 .inputBox {
-	max-width: 60%;
+	max-width: 40ch;
+	transition: all 1s ease-in;
+}
+
+.inputBox.dark {
+	background-color: #3b3b3b;
+	color: #ffffff;
+	border: none;
 }
 
 .loginForm {
-	padding: 2em;
+	margin-top: 10%;
+	padding: 1em;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	border-radius: 10px;
+	max-width: 40ch;
+	transition: all 1s ease-in;
+}
+
+.loginForm.dark > h1 {
+	color: #ffffff;
+	transition: all 1s ease-in;
+}
+
+.formGroup {
+	margin-bottom: 20px;
+	padding: 0.4em 0.5em;
+	border-radius: 6px;
+	max-width: 40ch;
+	transition: all 1s ease-in;
+}
+
+.formGroup.dark {
+	background-color: #242424;
+}
+
+.formlabel.dark {
+	color: white;
+	transition: all 1s ease-in;
+}
+
+.loginPage {
+	display: inline-grid;
+	grid-template-columns: 1fr 6fr 1fr;
+	grid-template-rows: 4fr 1fr;
+	width: 100%;
+	transition: all 1s ease-in;
 }
