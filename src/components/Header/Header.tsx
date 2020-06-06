@@ -34,7 +34,11 @@ const Header = () => {
 		>
 			<Navbar.Brand>	
 				<NavLink to='/'>
-					<img className={styles.brand} src='/images/Logo.png'/>
+					<img
+					className={styles.brand}
+					src='/images/Logo.png'
+					alt='Max Wood'
+					/>
 				</NavLink>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
