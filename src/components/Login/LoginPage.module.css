@@ -1,12 +1,12 @@
 .inputBox {
 	max-width: 40ch;
-	transition: all 1s ease-in;
+	transition: color 1s ease-in, background-color 1s ease-in, border-color 1s ease-in;
 }
 
 .inputBox.dark {
 	background-color: #3b3b3b;
 	color: #ffffff;
-	border: none;
+	border-color: #3b3b3b;
 }
 
 .loginForm {
@@ -20,9 +20,12 @@
 	transition: all 1s ease-in;
 }
 
+.loginForm > h1 {
+	transition: all 1s ease-in;
+}
+
 .loginForm.dark > h1 {
 	color: #ffffff;
-	transition: all 1s ease-in;
 }
 
 .formGroup {
@@ -37,9 +40,12 @@
 	background-color: #242424;
 }
 
+.formlabel {
+	transition: all 1s ease-in;
+}
+
 .formlabel.dark {
 	color: white;
-	transition: all 1s ease-in;
 }
 
 .loginPage {

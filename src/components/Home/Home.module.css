@@ -23,7 +23,7 @@
 }
 
 .desc.dark {
-	color: beige;
+	color: white;
 }
 
 .home {
@@ -41,7 +41,7 @@
 }
 
 .name.dark {
-	color: beige;
+	color: white;
 }
 
 @media (min-width: 410px) {
@@ -58,7 +58,7 @@
 		font-size: 64px;
 	}
 	.desc {
-		font-size: 30;
+		font-size: 30px;
 	}
 }
 

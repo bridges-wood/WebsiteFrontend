@@ -8,6 +8,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-thunk": "^2.1.0",
     "axios": "^0.19.2",
+    "cypress": "^4.8.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3",
     "prop-types": "^15.7.2",
@@ -26,8 +27,13 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-	"start": "react-scripts start",
-	"build": "react-scripts build"
+    "start": "react-scripts start",
+	"build": "react-scripts build",
+	"backend:e2e": "cd ../Backend && npm run e2e",
+	"backend:dev": "cd ../Backend && npm run dev",
+	"fullstack:dev": "concurrently --kill-others \"npm run backend:dev\" \"npm start\"",
+	"fullstack:e2e": "concurrently --kill-others \"npm run backend:e2e\" \"npm start\"",
+	"e2e": "./e2e.sh"
   },
   "browserslist": {
     "production": [
@@ -44,6 +50,7 @@
   "devDependencies": {
     "@types/radium": "^0.24.2",
     "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-google": "^0.14.0",

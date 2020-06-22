@@ -18,8 +18,8 @@ export const retrieveTheme = () => {
 }
 
 export const triggerSet = (theme: ThemeName) => {
+	localStorage.setItem('theme', JSON.stringify(theme))
 	return (dispatch : Dispatch) => {
-		localStorage.setItem('theme', JSON.stringify(theme))
 		dispatch(setTheme(theme))
 	}
 }

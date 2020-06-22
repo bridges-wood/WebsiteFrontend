@@ -8,6 +8,7 @@ import {
 } from './projectTypes'
 import projectService from '../../services/projects'
 import { notify } from '../notification/notificationActions'
+import store from '../../store'
 
 export const setProjectsBegin = (): ProjectActionTypes => ({
 	type: SET_PROJECTS_BEGIN,
@@ -24,12 +25,16 @@ export const setProjectsFailure = (error: Error): ProjectActionTypes => ({
 })
 
 export const initializeProjects = () => async (dispatch: Dispatch) => {
-	dispatch(setProjectsBegin())
-	try {
-		const projects: Project[] = await projectService.getAll(false)
-		dispatch(setProjectsSuccess(projects))
-	} catch (error) {
-		dispatch(setProjectsFailure(error))
+	const { projects, loading } = store.getState().projects
+	if (projects.length === 0 && loading) {
+		//Checks if projects have not yet been fetched.
+		dispatch(setProjectsBegin())
+		try {
+			const projects: Project[] = await projectService.getAll(false)
+			dispatch(setProjectsSuccess(projects))
+		} catch (error) {
+			dispatch(setProjectsFailure(error))
+		}
 	}
 }
 

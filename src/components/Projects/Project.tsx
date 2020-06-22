@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import Languages from './Languages'
 import Loading from '../Loading/Loading'
@@ -8,9 +8,16 @@ import { Project as ProjectType } from '../../types/Project'
 import { RootState } from '../../store'
 import styles from './Projects.module.css'
 import LanguageTable from './LanguageTable'
+import { initializeProjects } from '../../reducers/projects/projectActions'
 
 
 const Project = () => {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(initializeProjects())
+	}, [dispatch])
+
 	useEffect(() => {
 		window.scrollTo(0,0)
 	}, [])

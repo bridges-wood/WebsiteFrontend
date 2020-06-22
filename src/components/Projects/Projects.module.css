@@ -1,5 +1,6 @@
 .container {
-	padding: 0.5em;
+	width: 100%;
+	padding: 1em;
 }
 
 .header {
@@ -61,7 +62,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
-	margin: 15px;
 	margin-bottom: 30px;
 }
 

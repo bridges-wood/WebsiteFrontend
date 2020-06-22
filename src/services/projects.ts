@@ -17,9 +17,12 @@ const getAll = async (refresh: boolean) => {
 			refresh,
 		},
 	}
-
-	const res = await axios.get(`${baseUrl}`, config)
-	return res.data
+	try {
+		const res = await axios.get(`${baseUrl}`, config)
+		return res.data
+	} catch (error) {
+		console.log('error', error)
+	}
 }
 
 export default { getAll, setToken }

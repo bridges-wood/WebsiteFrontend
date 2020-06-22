@@ -37,6 +37,7 @@ const LoginForm = () => {
 						<Form.Control
 						name='username'
 						type='username'
+						autoComplete='username'
 						placeholder='Enter username'
 						className={`${styles.inputBox} ${styles[theme]}`}
 						onChange={(event) => setUsername(event.target.value)}
@@ -50,7 +51,8 @@ const LoginForm = () => {
 						</Form.Label>
 						<Form.Control
 						name='password'
-						type='current-password'
+						type='password'
+						autoComplete='current-password'
 						placeholder='Password'
 						className={`${styles.inputBox} ${styles[theme]}`}
 						onChange={(event) => setPassword(event.target.value)}

@@ -1,13 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { CardDeck } from 'react-bootstrap'
 import ProjectSummary from './ProjectSummary'
 import Loading from '../Loading/Loading'
 import { Project } from '../../types/Project'
 import styles from './Projects.module.css'
 import { RootState } from '../../store'
+import { initializeProjects } from '../../reducers/projects/projectActions'
 
 const Projects = () => {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(initializeProjects())
+	}, [dispatch])
+
+	
 	const {loading, projects, error} = useSelector((state: RootState) => state.projects)
 	const theme = useSelector((state: RootState) => state.theme.theme)
 
