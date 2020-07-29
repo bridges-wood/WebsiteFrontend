@@ -28,12 +28,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-	"build": "react-scripts build",
-	"backend:e2e": "cd ../Backend && npm run e2e",
-	"backend:dev": "cd ../Backend && npm run dev",
-	"fullstack:dev": "concurrently --kill-others \"npm run backend:dev\" \"npm start\"",
-	"fullstack:e2e": "concurrently --kill-others \"npm run backend:e2e\" \"npm start\"",
-	"e2e": "./e2e.sh"
+    "build": "react-scripts build",
+    "backend:e2e": "cd ../Backend && npm run e2e",
+    "backend:dev": "cd ../Backend && npm run dev",
+    "fullstack:dev": "concurrently --kill-others \"npm run backend:dev\" \"npm start\"",
+    "fullstack:e2e": "concurrently --kill-others \"npm run backend:e2e\" \"npm start\"",
+    "e2e": "./e2e.sh"
   },
   "browserslist": {
     "production": [
